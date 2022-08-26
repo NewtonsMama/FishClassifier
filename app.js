@@ -27,7 +27,7 @@ async function predict_class() {
     .sub(tf.scalar(1.0))
     .expandDims(0);
 
-  const model = await tf.loadLayersModel("model_4_edit.json");
+  const model = await tf.loadLayersModel("./model_4_edit.json");
 
   const pred = model.predict(step1).dataSync();
  
