@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="styles/page_styling.css"> -->
+	
+</head>
+
+<body>
+	<div id="input_image_container"><img src="#" id="input_image" style="top:5vh;" height="400" width="500"></div>
+	<div class="container" id="tray">
+		<div id="uploadFile" class="custombutton">
+			<i class="fa fa-file" style="font-size:25px;color: #1ab5e3"></i><br /><br />
+			<input type="file" name="fileupload" accept="image/*" onchange="display(event)">
+		</div>
+		<div class="custombutton">
+			<i class="fa fa-bar-chart" style="font-size:25px;color: #1ab5e3"></i><br /><br />
+			<input type="button" name="predict" onclick="predict_class()" value="PREDICT">
+		</div>
+	</div>
+	<div class="container output_screen">
+	
+		 <!-- <div id="output_chart"></div> -->
+		<div id="output_text"></div>
+	</div>
+	<script src="app.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.12.0/dist/tf.min.js"></script>
+</body>
+
+</html>
