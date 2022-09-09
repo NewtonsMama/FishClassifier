@@ -17,7 +17,7 @@ async function predict_class() {
     "Sardine",
     "Seer",
     "Sole",
-    "WHite Sardine",
+    "White Sardine",
   ];
   let step1 = tf.browser
     .fromPixels(input)
@@ -27,7 +27,7 @@ async function predict_class() {
     .sub(tf.scalar(1.0))
     .expandDims(0);
 
-  //const model = await tf.loadLayersModel("./model_4_edit.json");
+  //const model = await tf.loadLayersModel("model_4_edit.json");
   const model = await tf.loadLayersModel("https://newtonsmama.github.io/FishClassifier/model_4_edit.json");
   const pred = model.predict(step1).dataSync();
  
@@ -48,7 +48,14 @@ async function predict_class() {
   console.log("End of predict function");
   
   document.getElementsByClassName("output_screen")[0].style.display = "flex";
-  document.getElementById("output_text").innerHTML = "";
-  document.getElementById("output_text").innerHTML = ans;
+
+  let final=`${ans}`+"<br>";
+  
+  for (var j = 0; j < pred.length; j++) {
+    final=final+`${classes[j]} - ${pred[j]}`+"<br>";
+  }
+
+  document.getElementById("output_text").innerHTML = final;
+
   
 }
